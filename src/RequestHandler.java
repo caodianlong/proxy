@@ -290,12 +290,13 @@ public class RequestHandler implements Runnable {
 	 */
 	private void stripUnwantedHeaders() {
 
-		if(header.containsKey("user-agent")) header.remove("user-agent");
+		//if(header.containsKey("user-agent")) header.remove("user-agent");
 		if(header.containsKey("referer")) header.remove("referer");
 		if(header.containsKey("proxy-connection")) header.remove("proxy-connection");
 		if(header.containsKey("connection") && header.get("connection").equalsIgnoreCase("keep-alive")) {
 			header.remove("connection");
 		}
+		if(header.containsKey("cache-control")) header.remove("cache-control");
 	}
 
 	/**
